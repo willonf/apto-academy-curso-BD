@@ -2,6 +2,9 @@
   id SERIAL,
   name VARCHAR(64) NOT NULL,
   abbreviation CHAR(2) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_state PRIMARY KEY (id)
 );
 
@@ -9,12 +12,18 @@ CREATE TABLE city (
   id SERIAL,
   id_state INTEGER NOT NULL,
   name VARCHAR(64) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_city PRIMARY KEY (id)
 );
 
 CREATE TABLE zone (
   id SERIAL,
   name VARCHAR(64) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_zone PRIMARY KEY (id)
 );
 
@@ -23,6 +32,9 @@ CREATE TABLE district (
   id_city INTEGER NOT NULL,
   id_zone INTEGER NOT NULL,
   name VARCHAR(64) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_district PRIMARY KEY (id)
 );
 
@@ -30,12 +42,18 @@ CREATE TABLE branch (
   id SERIAL,
   id_district INTEGER NOT NULL,
   name VARCHAR(64) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_branch PRIMARY KEY (id)
 );
 
 CREATE TABLE marital_status (
   id SERIAL,
   name VARCHAR(64) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_marital_status PRIMARY KEY (id)
 );
 
@@ -46,12 +64,18 @@ CREATE TABLE customer (
   name VARCHAR(64) NOT NULL,
   income NUMERIC(16,2) NOT NULL,
   gender CHAR(1) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_customer PRIMARY KEY (id)
 );
 
 CREATE TABLE department (
   id SERIAL,
   name VARCHAR(64) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_department PRIMARY KEY (id)
 );
 
@@ -65,6 +89,9 @@ CREATE TABLE employee (
   admission_date DATE NOT NULL,
   birth_date DATE NOT NULL,
   gender CHAR(1) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_employee PRIMARY KEY (id)
 );
 
@@ -73,6 +100,9 @@ CREATE TABLE product_group (
   name VARCHAR(64) NOT NULL,
   commission_percentage NUMERIC(5,2) NOT NULL,
   gain_percentage NUMERIC(5,2) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_product_group PRIMARY KEY (id)
 );
 
@@ -80,6 +110,9 @@ CREATE TABLE supplier (
   id SERIAL,
   name VARCHAR(64) NOT NULL,
   legal_document VARCHAR(20) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_supplier PRIMARY KEY (id)
 );
 
@@ -90,6 +123,9 @@ CREATE TABLE product (
   name VARCHAR(64) NOT NULL,
   cost_price NUMERIC(16,2) NOT NULL,
   sale_price NUMERIC(16,2) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_product PRIMARY KEY (id)
 );
 
@@ -99,6 +135,9 @@ CREATE TABLE sale (
   id_branch INTEGER NOT NULL,
   id_employee INTEGER NOT NULL,
   date TIMESTAMP NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_sale PRIMARY KEY (id)
 );
 
@@ -107,6 +146,9 @@ CREATE TABLE sale_item (
   id_sale INTEGER NOT NULL,
   id_product INTEGER NOT NULL,
   quantity NUMERIC(16,3) NOT NULL,
+  active boolean default true,
+  created_at timestamp default now(),
+  modified_at timestamp default now(),
   CONSTRAINT PK_sale_item PRIMARY KEY (id)
 );
 
